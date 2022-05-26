@@ -30,6 +30,10 @@ public class MoedaService {
         return moedaRepository.save(new MoedaModel(vo)).to();
     }
 
+    public void delete(String id){
+        moedaRepository.deleteById(id);
+    }
+
     public Moeda findBySimbolo(String simbolo){
         return moedaRepository.findBySimbolo(simbolo)
                     .map(MoedaModel::to)

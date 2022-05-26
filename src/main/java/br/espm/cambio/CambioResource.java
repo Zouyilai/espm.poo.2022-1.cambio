@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,5 +44,10 @@ public class CambioResource {
     public void save(@RequestBody Moeda moeda){
         moedaService.create(moeda);
         //moedas.add(moeda);
+    }
+
+    @DeleteMapping("/moeda/{id:[a-f0-9]{8}(?:-[a-f0-9]{4}){4}[a-f0-9]{8}}")
+    public void delete(@PathVariable String id){
+        moedaService.delete(id);
     }
 }
