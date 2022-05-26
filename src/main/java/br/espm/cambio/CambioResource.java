@@ -1,6 +1,7 @@
 package br.espm.cambio;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,19 +25,18 @@ public class CambioResource {
 
     @GetMapping("/moeda")
     public List<Moeda> ListMoeda(){
-
-        /*moedas.add(new Moeda("Real", "BRL"));
-        moedas.add(new Moeda("Rublo", "RUB"));
-        moedas.add(new Moeda("Dólar", "USD"));
-        moedas.add(new Moeda("Euro", "EUR"));
-        moedas.add(new Moeda("Yuan", "CHN"));*/
-
         return moedaService.listaAll();
     }
 
-    @GetMapping("/moeda/{simbolo}")
-    public Moeda findMoedaBySimbolo(@PathVariable String simbolo){
+    @GetMapping("/moeda/{simbolo:[A-Z]{3,}}")
+    public Moeda findMoedaBySimbolo(@PathVariable String simbolo) {
         return moedaService.findBySimbolo(simbolo);
+    }
+
+    @GetMapping("/moeda/{id:[a-f0-9]{8}(?:-[a-f0-9]{4}){4}[a-f0-9]{8}}")
+    public Moeda findMoedaById(@PathVariable String id) {
+        UUID uuid = UUID.fromString(id);
+        return moedaService.findBy(uuid);
     }
 
     @PostMapping("/moeda")

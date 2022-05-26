@@ -11,7 +11,7 @@ public interface MoedaRepository extends CrudRepository<MoedaModel, String> {
     Iterable<MoedaModel> findAll();
 
     @Override
-    Optional<MoedaModel> findById(String s);
+    Optional<MoedaModel> findById(String id);
 
     //JQL - retorna objeto
     @Query("SELECT m from MoedaModel m WHERE UPPER(m.txSimbolo) = UPPER(:simbolo)")

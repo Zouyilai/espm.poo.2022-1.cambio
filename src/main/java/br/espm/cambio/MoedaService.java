@@ -35,4 +35,10 @@ public class MoedaService {
                     .map(MoedaModel::to)
                     .orElse(null);
     }
+
+    public Moeda findBy(UUID id) {
+        return moedaRepository.findById(id.toString())
+                    .map(MoedaModel::to)
+                    .orElse(null);
+    }
 }
