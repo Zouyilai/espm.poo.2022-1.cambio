@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,6 +32,11 @@ public class CambioResource {
         moedas.add(new Moeda("Yuan", "CHN"));*/
 
         return moedaService.listaAll();
+    }
+
+    @GetMapping("/moeda/{simbolo}")
+    public Moeda findMoedaBySimbolo(@PathVariable String simbolo){
+        return moedaService.findBySimbolo(simbolo);
     }
 
     @PostMapping("/moeda")

@@ -29,4 +29,10 @@ public class MoedaService {
         vo.setId(UUID.randomUUID());
         return moedaRepository.save(new MoedaModel(vo)).to();
     }
+
+    public Moeda findBySimbolo(String simbolo){
+        return moedaRepository.findBySimbolo(simbolo)
+                    .map(MoedaModel::to)
+                    .orElse(null);
+    }
 }
