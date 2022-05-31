@@ -19,5 +19,4 @@ public interface MoedaRepository extends CrudRepository<MoedaModel, String> {
     //JQL - retorna objeto
     @Query("SELECT m from MoedaModel m WHERE UPPER(m.txSimbolo) = UPPER(:simbolo)")
     Optional<MoedaModel> findBySimbolo(@Param("simbolo") String simbolo);
-    
 }

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: br.espm.cambio.CambioApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.913 s - in br.espm.cambio.CambioApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.362 s - in br.espm.cambio.CambioApplicationTests
