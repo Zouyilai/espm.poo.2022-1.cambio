@@ -34,7 +34,7 @@ public class CambioResource {
         return moedaService.listaAll();
     }
 
-    @GetMapping("/moeda/{simbolo:[A-Z]{3,}}")
+    @GetMapping("/moeda/{simbolo:[a-zA-Z]{3,}}")
     public Moeda findMoedaBySimbolo(@PathVariable String simbolo) {
         return moedaService.findBySimbolo(simbolo);
     }
@@ -64,7 +64,7 @@ public class CambioResource {
         return cotacaoService.listaAll();
     }
 
-    @GetMapping("/cotacao/{simbolo:[A-Z]{3,}}")
+    @GetMapping("/cotacao/{simbolo:[a-zA-Z]{3,}}")
     public List<Cotacao> findCotacaoBySimbolo(@PathVariable String simbolo) {
         List<Cotacao> cs = cotacaoService.findBySimbolo(simbolo);
         cs.forEach(c -> c.setId(null));
